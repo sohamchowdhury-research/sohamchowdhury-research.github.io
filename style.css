@@ -393,3 +393,17 @@ main > .quote-band:last-child { padding-bottom: 60px !important; }
 .hero .wrap > div:first-child { position: relative; z-index: 2; }
 @media (max-width: 860px) { .portrait::before { width: 135%; opacity: .55; } }
 .page-head p { max-width: 40em; }
+
+/* ---- homepage portrait: clean circle with a glowing ring; small water cage as an accent ---- */
+.portrait { max-width: 340px; }
+.portrait::before {
+  width: 44%; left: auto; right: -10%; top: auto; bottom: -6%; transform: none; opacity: .95; z-index: 2;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .5));
+}
+.portrait img {
+  aspect-ratio: 1; border-radius: 50%; object-position: 50% 14%;
+  border: 4px solid rgba(255, 255, 255, .95);
+  box-shadow: 0 0 0 8px rgba(79, 216, 242, .20), 0 0 60px rgba(79, 216, 242, .28), 0 24px 70px rgba(0, 0, 0, .55);
+}
+@media (max-width: 860px) { .portrait { max-width: 230px; } .portrait::before { width: 42%; right: -8%; opacity: .9; } }
+.portrait::before { right: -20%; bottom: -14%; width: 46%; } @media (max-width: 860px) { .portrait::before { right: -16%; bottom: -10%; } }
