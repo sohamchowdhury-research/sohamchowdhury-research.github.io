@@ -74,7 +74,26 @@
   function renderFooter() {
     document.getElementById("footer").innerHTML =
       '<footer class="site-footer"><div class="wrap"><div>© ' + new Date().getFullYear() + " " + esc(S.name) +
-      " · " + esc(S.affiliation) + "<br>Last updated " + esc(S.updated) + "</div>" + iconRow(S.contacts || []) + "</div></footer>";
+      " · " + esc(S.affiliation) + "<br>Last updated " + esc(S.updated) +
+      (S.visitorCounter ? ' <span class="visits" id="visits" hidden>· Visitors <b>0</b></span>' : "") +
+      "</div>" + iconRow(S.contacts || []) + "</div></footer>";
+    loadVisits();
+  }
+
+  /* Visitor counter: free Abacus counting API (abacus.jasoncameron.dev). Counts one visit per browser per day,
+     and only on the published github.io site (so editing/previewing never inflates the number). */
+  function loadVisits() {
+    var c = S.visitorCounter, el = document.getElementById("visits");
+    if (!c || !el || !/\.github\.io$/.test(location.hostname)) return;
+    var day = new Date().toISOString().slice(0, 10), seen = null;
+    try { seen = localStorage.getItem("vc-" + c.key); } catch (e) {}
+    var url = "https://abacus.jasoncameron.dev/" + (seen === day ? "get/" : "hit/") + encodeURIComponent(c.namespace) + "/" + encodeURIComponent(c.key);
+    fetch(url).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (j) {
+      if (typeof j.value !== "number") return;
+      el.querySelector("b").textContent = j.value.toLocaleString("en-IN");
+      el.hidden = false;
+      try { localStorage.setItem("vc-" + c.key, day); } catch (e) {}
+    }).catch(function () {});
   }
 
   /* ---------------- helpers ---------------- */
@@ -97,7 +116,7 @@
   }
   function quoteHTML(q) {
     if (!q) return "";
-    return '<section class="block"><div class="wrap"><figure class="quote"><blockquote>“' + q.text + "”</blockquote>" +
+    return '<section class="block quote-band"><div class="wrap"><figure class="quote"><blockquote>“' + q.text + "”</blockquote>" +
       "<figcaption>— " + q.by + (q.source ? ", " + q.source : "") + "</figcaption></figure></div></section>";
   }
   function fundingHTML(title) {
@@ -153,7 +172,7 @@
     html += '<section class="block"><div class="wrap">' + sectionTitle("About") + '<div class="bio">' +
       (S.bio || []).map(function (p) { return "<p>" + p + "</p>"; }).join("") + "</div></div></section>";
 
-    html += '<section class="block"><div class="wrap">' + sectionTitle("Research interests") + '<div class="cards">' +
+    html += '<section class="block dark-band"><div class="wrap">' + sectionTitle("Research interests") + '<div class="cards">' +
       (S.interests || []).map(function (c) { return '<div class="card accent-top"><h3>' + c.title + "</h3><p>" + c.text + "</p></div>"; }).join("") +
       "</div></div></section>";
 
@@ -171,6 +190,11 @@
 
   R.research = function () {
     var html = pageHead("Research", S.researchIntro);
+    if ((S.researchFigures || []).length) {
+      html += '<section class="fig-strip"><div class="wrap"><div class="fig-grid">' + S.researchFigures.map(function (f) {
+        return '<figure><div class="fig-art"><img src="' + esc(f.img) + '" alt="' + esc(f.alt) + '" loading="lazy"></div><figcaption>' + f.caption + "</figcaption></figure>";
+      }).join("") + "</div></div></section>";
+    }
     html += '<div class="wrap" style="padding-top:20px">' + (S.researchThemes || []).map(function (t, i) {
       var rel = (t.papers || []).map(function (d) {
         var p = pubByDoi(d);

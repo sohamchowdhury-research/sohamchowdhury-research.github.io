@@ -88,6 +88,10 @@ window.SITE = {
     { date: "Jan 2026", text: "Started a RESOLV visiting research fellowship at Ruhr-Universität Bochum." }
   ],
 
+  // Visitor counter shown in the footer (free Abacus API, no account needed). Delete this block to remove it.
+  // Change "key" to start a fresh count.
+  visitorCounter: { namespace: "sohamchowdhury-research.github.io", key: "visits" },
+
   // ------------------------------------------------------------ RESEARCH
   researchIntro:
     "Most of the chemistry of the universe happens in the cold. In dense interstellar clouds, molecules freeze onto dust grains and build " +
@@ -95,6 +99,16 @@ window.SITE = {
     "the same kind of molecules that connect the chemistry of space to the origin of life, and where they are broken down again. " +
     "My research ponders over the potential of water ices in facilitating the physical evolution and chemical reactions with " +
     "interacting molecules of interstellar relevance.",
+
+  // Illustrations at the top of the Research page (schematics, drawn to scale where noted).
+  researchFigures: [
+    { img: "water-dimer.svg", alt: "Two water molecules joined by a hydrogen bond",
+      caption: "<b>The hydrogen bond.</b> Two water molecules: O–H 0.96 Å, H–O–H 104.5°, and an O–H···O contact of about 2 Å." },
+    { img: "cage-dark.svg", alt: "Pentagonal dodecahedral water cage enclosing a methane molecule",
+      caption: "<b>The 5<sup>12</sup> cage.</b> Twenty water molecules joined by thirty hydrogen bonds enclose a methane guest, the small cage of structure I clathrate hydrate." },
+    { img: "ice-lattice-card.svg", alt: "Schematic of hexagonal ice Ih viewed along the c axis",
+      caption: "<b>Crystalline ice.</b> Hexagonal ice Ih viewed along the c axis; every oxygen is hydrogen-bonded to its neighbours, with the protons disordered but obeying the ice rules." }
+  ],
 
   researchThemes: [
     { title: "Clathrate hydrates in interstellar ice analogues",
