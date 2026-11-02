@@ -254,11 +254,13 @@
 
   R.teaching = function () {
     var html = pageHead("Teaching", S.teachingIntro);
-    html += '<div class="wrap" style="padding-top:34px">' + sectionTitle("Courses");
+    html += '<div class="wrap" style="padding-top:34px">' + sectionTitle("Teaching assistantships");
     if ((S.courses || []).length) {
-      html += '<div class="table-wrap"><table class="courses"><thead><tr><th>Term</th><th>Code</th><th>Course</th><th>Institution</th></tr></thead><tbody>' +
+      html += '<div class="table-wrap"><table class="courses"><thead><tr><th>Term</th><th>Course</th><th>Role</th><th>Course coordinator</th></tr></thead><tbody>' +
         S.courses.map(function (c) {
-          return "<tr><td>" + (c.term || "") + "</td><td>" + (c.code || "") + "</td><td>" + c.title + "</td><td>" + (c.institution || "") + "</td></tr>";
+          var coord = c.coordinatorUrl ? '<a href="' + esc(c.coordinatorUrl) + '" target="_blank" rel="noopener">' + c.coordinator + "</a>" : (c.coordinator || "");
+          return "<tr><td>" + (c.term || "") + "</td><td><b>" + (c.code || "") + "</b> · " + c.title +
+            '<div class="sub">' + (c.programme || "") + "</div></td><td>Teaching assistant</td><td>" + coord + "</td></tr>";
         }).join("") + "</tbody></table></div>";
     } else {
       html += '<p class="empty">The list of courses will appear here soon.</p>';
@@ -274,8 +276,15 @@
         '</span><br><span class="txt">' + esc(c.text) + "</span></span></a>";
     }).join("") + '</div><div style="height:38px"></div>' + sectionTitle("Address") +
       '<div style="display:grid;grid-template-columns:52px 1fr;gap:16px"><span class="contact-card" style="padding:0;border:0;box-shadow:none;display:block"><span class="ic">' + icon("pin") + "</span></span>" +
-      "<address><b>" + esc(S.name) + "</b><br>" + (S.address || []).map(esc).join("<br>") + "</address></div></div>";
-    return html;
+      "<address><b>" + esc(S.name) + "</b><br>" + (S.address || []).map(esc).join("<br>") + "</address></div>";
+    if (S.mapQuery) {
+      var q = encodeURIComponent(S.mapQuery);
+      html += '<div style="height:38px"></div>' + sectionTitle("Location") +
+        '<div class="map"><iframe title="Map of the Department of Chemistry, IIT Madras" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ' +
+        'src="https://maps.google.com/maps?q=' + q + '&amp;z=16&amp;output=embed" allowfullscreen></iframe></div>' +
+        '<p class="note-small"><a href="https://www.google.com/maps/search/?api=1&amp;query=' + q + '" target="_blank" rel="noopener">Open in Google Maps</a></p>';
+    }
+    return html + "</div>";
   };
 
   /* ---------------- boot ---------------- */

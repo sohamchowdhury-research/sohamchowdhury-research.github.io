@@ -12,7 +12,7 @@ window.SITE = {
   group: "Pradeep Research Group",
   groupUrl: "https://pradeepresearch.org",
   // File name of the Pradeep Research Group logo uploaded next to index.html (e.g. "logo-pradeep.png"). "" hides it.
-  groupLogo: "",
+  groupLogo: "logo-pradeep.jpg",
   updated: "November 2026",
 
   // Link to your CV on Google Drive (Share → Anyone with the link). Leave "" to hide the button.
@@ -190,15 +190,20 @@ window.SITE = {
   ],
 
   // -------------------------------------------------------------- TEACHING
-  teachingIntro: "Courses at IIT Madras.",
+  teachingIntro: "I have served as a teaching assistant (TA) for undergraduate chemistry courses at IIT Madras.",
 
-  // Add courses like this (copy a line, edit it):
-  // { term: "Jul – Nov 2021", code: "CY5010", title: "Course title", institution: "IIT Madras", grade: "" }
+  // One line per course offering, newest first. Copy a line to add another:
+  // { term: "Jul – Nov 2026", code: "CY1001", title: "Course title", programme: "B.Tech, IIT Madras",
+  //   coordinator: "Prof. Name", coordinatorUrl: "https://..." },
   courses: [
-    { term: "Jul – Nov 2022, Jul – Nov 2023", code: "CY1001",
-      title: "Chemistry: Principles, Structure, Reactivity and Applications", institution: "B.Tech, IIT Madras" },
-    { term: "Jan – May 2023, Jan – May 2025", code: "CY1002",
-      title: "Chemistry Laboratory Course", institution: "B.Tech, IIT Madras" }
+    { term: "Jan – May 2025", code: "CY1002", title: "Chemistry Laboratory Course", programme: "B.Tech, IIT Madras",
+      coordinator: "Prof. Muraleedharan K. M.", coordinatorUrl: "https://chem.iitm.ac.in/faculty-inner.php?id=23" },
+    { term: "Jul – Nov 2023", code: "CY1001", title: "Chemistry: Principles, Structure, Reactivity and Applications", programme: "B.Tech, IIT Madras",
+      coordinator: "Prof. M. V. Sankaranarayanan", coordinatorUrl: "https://chem.iitm.ac.in/retired-faculty.php" },
+    { term: "Jan – May 2023", code: "CY1002", title: "Chemistry Laboratory Course", programme: "B.Tech, IIT Madras",
+      coordinator: "Prof. Chaitanya Sharma Yamijala", coordinatorUrl: "https://chem.iitm.ac.in/faculty-inner.php?id=10" },
+    { term: "Jul – Nov 2022", code: "CY1001", title: "Chemistry: Principles, Structure, Reactivity and Applications", programme: "B.Tech, IIT Madras",
+      coordinator: "Prof. Edamana Prasad", coordinatorUrl: "https://chem.iitm.ac.in/faculty-inner.php?id=15" }
   ],
 
   // Optional: teaching assistantships or mentoring. Leave [] to hide.
@@ -207,7 +212,10 @@ window.SITE = {
   ],
 
   // --------------------------------------------------------------- CONTACT
-  address: ["Department of Chemistry", "Indian Institute of Technology Madras", "Chennai, Tamil Nadu 600036, India"],
+  address: ["HSB 148, Unit of Nanoscience", "Department of Chemistry", "Indian Institute of Technology Madras", "Chennai – 600036", "India"],
+
+  // Search text used for the Google Map on the Contact page.
+  mapQuery: "Department of Chemistry, Indian Institute of Technology Madras, Chennai 600036, India",
 
   // type picks the icon: email | scholar | orcid | linkedin | researchgate | github | cv | link
   // "text" is the typed link shown on the page. To add one, copy a line and fill it in.
@@ -222,13 +230,13 @@ window.SITE = {
   // ------------------------------------------------------ FUNDING & SUPPORT
   // logo: file name of the logo image uploaded next to index.html (e.g. "logo-anrf.png"). "" shows the abbreviation instead.
   funding: [
-    { name: "IIT Madras HTRA Fellowship", abbr: "IITM", logo: "", url: "https://www.iitm.ac.in",
+    { name: "IIT Madras HTRA Fellowship", abbr: "IITM", logo: "logo-iitm.png", url: "https://www.iitm.ac.in",
       text: "Half-Time Research Assistantship from IIT Madras, supporting my Ph.D. research." },
-    { name: "ANRF Advanced Research Grant (ARG)", abbr: "ANRF", logo: "", url: "https://anrfonline.in",
+    { name: "ANRF Advanced Research Grant (ARG)", abbr: "ANRF", logo: "logo-anrf.png", url: "https://anrfonline.in",
       text: "Anusandhan National Research Foundation grant supporting clathrate hydrate research and new cryogenic instrumentation." },
     { name: "ISRO–IITM funding", abbr: "ISRO", logo: "", url: "https://www.isro.gov.in",
       text: "Support from the Indian Space Research Organisation through IIT Madras for astrochemistry research." },
-    { name: "RESOLV, Ruhr-Universität Bochum", abbr: "RESOLV", logo: "", url: "https://www.solvation.de",
+    { name: "RESOLV, Ruhr-Universität Bochum", abbr: "RESOLV", logo: "logo-resolv.png", url: "https://www.solvation.de",
       text: "The RESOLV Cluster of Excellence funded my 2026 research visit to Bochum, Germany." }
   ]
 };
