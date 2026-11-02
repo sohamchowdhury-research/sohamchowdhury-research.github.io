@@ -31,7 +31,7 @@ window.SITE = {
                     by: "Marie Skłodowska-Curie", source: "Autobiographical Notes, in <i>Pierre Curie</i> (1923)" },
     research:     { text: "The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures.",
                     by: "Rabindranath Tagore", source: "<i>Gitanjali</i>, poem 69" },
-    publications: { text: "Say not, “I have found the truth,” but rather, “I have found a truth.”",
+    publications: { text: "Say not, ‘I have found the truth,’ but rather, ‘I have found a truth.’",
                     by: "Kahlil Gibran", source: "<i>The Prophet</i> (1923), “On Self-Knowledge”" },
     exposure:     { text: "To strive, to seek, to find, and not to yield.",
                     by: "Alfred, Lord Tennyson", source: "<i>Ulysses</i> (1842)" },
