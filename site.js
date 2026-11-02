@@ -20,7 +20,7 @@ window.SITE = {
   showOpenToWork: false,
   openToWorkText: "Seeking postdoctoral opportunities in experimental astrochemistry and cryogenic surface science from mid-2027.",
 
-  photo: "images/soham.jpg",
+  photo: "soham.jpg",
 
   // ---------------------------------------------------------------- HOME
   intro:
@@ -103,14 +103,14 @@ window.SITE = {
     "The experiments are carried out in ultrahigh-vacuum chambers fitted with liquid-helium cryostats, so that thin ice films can be " +
     "prepared and studied at very low temperature without contamination. Several complementary probes are used on the same sample.",
 
-  // Photos shown at the top of the Instruments page. Replace or add your own files in the images/ folder.
+  // Photos shown at the top of the Instruments page. Upload your own photos next to index.html.
   labPhotos: [
-    { src: "images/lab-1.jpg", caption: "Working on the UHV instrument at the Pradeep Research Group." },
-    { src: "images/lab-2.jpg", caption: "Operating the cryogenic surface-science setup." }
+    { src: "lab-1.jpg", caption: "Working on the UHV instrument at the Pradeep Research Group." },
+    { src: "lab-2.jpg", caption: "Operating the cryogenic surface-science setup." }
   ],
 
-  // For each instrument: put a photo in images/instruments/ and write its path in "img",
-  // e.g. img: "images/instruments/escaprobe.jpg". Leave "" to show a placeholder.
+  // For each instrument: upload the photo next to index.html and write its file name in "img",
+  // e.g. img: "escaprobe.jpg". Leave "" to show a placeholder.
   instruments: [
     { name: "ESCAprobe TPD facility",
       tag: "Multi-technique UHV system",
