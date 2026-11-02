@@ -1,6 +1,7 @@
 // PUBLICATIONS — one block per paper. Newest first.
 // To add a paper: copy a block, paste it at the top of the list, edit the fields.
 //   topic: "ice"  = Ice & clathrate hydrates     "nano" = Nanomaterials & spectroscopy
+//   equalFirst: true  marks equal first authors (put * after both names in "authors").
 //   pdf:   paste a Google Drive share link (anyone with the link) or leave "".
 //   Use <sub>2</sub> / <sup>2−</sup> inside titles for subscripts and superscripts.
 window.PUBLICATIONS = [
@@ -225,8 +226,8 @@ window.PUBLICATIONS = [
   {
     "title": "Secondary Guest-Driven Nucleation of N<sub>2</sub>O Clathrate Hydrate in Amorphous Ice Mixture under Ultrahigh Vacuum",
     "authors": [
-      "B. K. Malla",
-      "S. Chowdhury",
+      "B. K. Malla*",
+      "S. Chowdhury*",
       "S. K. Nayak",
       "S. S. Baji",
       "T. J. Mathew",
@@ -242,7 +243,8 @@ window.PUBLICATIONS = [
     "pages": "12720–12727",
     "doi": "10.1021/acs.jpclett.5c02778",
     "pdf": "",
-    "topic": "ice"
+    "topic": "ice",
+    "equalFirst": true
   },
   {
     "title": "Morphology‐Preserved Alloying in Anisotropic Gold Nanoparticles Using Atomically Precise Nanoclusters",

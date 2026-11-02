@@ -24,25 +24,39 @@ window.SITE = {
 
   photo: "soham.jpg",
 
+  // ------------------------------------------------------------- QUOTES
+  // Shown on the page named in the key. Leave a key out to show no quote on that page.
+  quotes: {
+    home:         { text: "All my life through, the new sights of Nature made me rejoice like a child.",
+                    by: "Marie Skłodowska-Curie", source: "Autobiographical Notes, in <i>Pierre Curie</i> (1923)" },
+    research:     { text: "The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures.",
+                    by: "Rabindranath Tagore", source: "<i>Gitanjali</i>, poem 69" },
+    publications: { text: "Say not, “I have found the truth,” but rather, “I have found a truth.”",
+                    by: "Kahlil Gibran", source: "<i>The Prophet</i> (1923), “On Self-Knowledge”" },
+    exposure:     { text: "To strive, to seek, to find, and not to yield.",
+                    by: "Alfred, Lord Tennyson", source: "<i>Ulysses</i> (1842)" },
+    teaching:     { text: "If I have seen further it is by standing on the shoulders of Giants.",
+                    by: "Isaac Newton", source: "Letter to Robert Hooke, 5 February 1675/76" },
+    contact:      { text: "Live the questions now.",
+                    by: "Rainer Maria Rilke", source: "<i>Letters to a Young Poet</i>, Letter Four (1903)" }
+  },
+
   // ---------------------------------------------------------------- HOME
   intro:
     "I recreate the cold, dark, near-vacuum conditions of interstellar space in the laboratory to understand how ices, " +
     "water cages and the molecules trapped inside them form, transform and react.",
 
   bio: [
-    "I am a Ph.D. researcher in Chemistry at the Indian Institute of Technology Madras, Chennai, working with " +
-    "<a href='https://pradeepresearch.org' target='_blank' rel='noopener'>Prof. Thalappil Pradeep</a>. " +
-    "My research is in experimental astrochemistry: using ultrahigh-vacuum, cryogenic experiments to study the chemistry of ice " +
-    "analogues of the interstellar medium.",
+    "I am a Ph.D. researcher in Chemistry at the Indian Institute of Technology Madras, working with " +
+    "<a href='https://pradeepresearch.org' target='_blank' rel='noopener'>Prof. Thalappil Pradeep</a>, and I aspire to be a <b>surface chemist</b>. " +
+    "My present research seeks to explore how a bit of tinkering with bonding and interactions in molecular solids can initiate " +
+    "transformations at the molecular level, even at cryogenic temperatures.",
 
-    "I am particularly interested in <b>clathrate hydrates</b> — crystalline water cages that can trap small guest molecules — " +
-    "and in how they form, transform and react inside interstellar ice mimics. I follow these processes with a combination of " +
-    "surface-science techniques, including reflection-absorption infrared spectroscopy (RAIRS), temperature-programmed " +
-    "desorption mass spectrometry (TPD-MS), secondary ion mass spectrometry (SIMS), low-energy ion scattering (LEIS) and " +
-    "X-ray photoelectron spectroscopy (XPS).",
+    "I am developing the capability to design and build new instruments that solve a particular problem, inspired by nature. " +
+    "In the Pradeep group I also maintain one of the group's surface-science facilities and carry out the analysis on it.",
 
-    "In 2026 I was a RESOLV visiting research fellow in the group of André K. Eckhardt at Ruhr-Universität Bochum, Germany. " +
-    "In the Pradeep group I also look after the ESCAprobe TPD facility."
+    "I hail from Hindmotor, West Bengal, India, a town known for one of the country's earliest automobile industries. " +
+    "In 2026 I was a RESOLV visiting research fellow in the group of André K. Eckhardt at Ruhr-Universität Bochum, Germany."
   ],
 
   interests: [
@@ -52,8 +66,8 @@ window.SITE = {
       text: "Reactions on and within ice surfaces at very low temperature, such as the spontaneous hydrolysis of ethers on water ice." },
     { title: "Photochemistry of ices and cages",
       text: "Vacuum-ultraviolet photolysis of condensed molecules and clathrate hydrates, and how the cage controls reactivity." },
-    { title: "Surface and materials spectroscopy",
-      text: "Collaborative XPS and mass-spectrometric studies of atomically precise nanoclusters and microdroplet chemistry." }
+    { title: "Surface spectroscopy of nanomaterials",
+      text: "Collaborative XPS studies of atomically precise nanoclusters and microdroplet chemistry." }
   ],
 
   education: [
@@ -77,8 +91,10 @@ window.SITE = {
   // ------------------------------------------------------------ RESEARCH
   researchIntro:
     "Most of the chemistry of the universe happens in the cold. In dense interstellar clouds, molecules freeze onto dust grains and build " +
-    "up icy mantles, which are thought to be the birthplace of many of the complex organic molecules later seen in star- and planet-forming regions. " +
-    "My work reproduces these environments in ultrahigh-vacuum chambers cooled by liquid helium and follows the chemistry of the ices in real time.",
+    "up icy mantles, which are both the birthplace and the graveyard of molecules: the places where complex organic molecules are made, " +
+    "the same kind of molecules that connect the chemistry of space to the origin of life, and where they are broken down again. " +
+    "My research ponders over the potential of water ices in facilitating the physical evolution and chemical reactions with " +
+    "interacting molecules of interstellar relevance.",
 
   researchThemes: [
     { title: "Clathrate hydrates in interstellar ice analogues",
@@ -94,16 +110,17 @@ window.SITE = {
       text: "Starlight and cosmic radiation drive chemistry in ices. Using vacuum-ultraviolet light, we examine the photolysis of condensed molecules and of guests " +
             "trapped inside clathrate hydrate cages, showing how confinement in the cage steers the products.",
       papers: ["10.1021/acs.jpclett.6c00029", "10.1021/acs.jpclett.6c00885", "10.1039/d5cp00620a"] },
-    { title: "Nanomaterials and surface spectroscopy",
-      text: "Alongside the ice work I contribute XPS and mass-spectrometric measurements to collaborative studies of atomically precise nanoclusters, " +
+    { title: "Surface spectroscopy of nanomaterials",
+      text: "Alongside the ice work I contribute XPS measurements to collaborative studies of atomically precise nanoclusters, " +
             "nanoparticles and chemistry in charged water microdroplets.",
       papers: ["10.1021/acs.nanolett.5c05462", "10.1039/d6nr00658b"] }
   ],
 
   // --------------------------------------------------------- INSTRUMENTS
   instrumentsIntro:
-    "The experiments are carried out in ultrahigh-vacuum chambers fitted with liquid-helium cryostats, so that thin ice films can be " +
-    "prepared and studied at very low temperature without contamination. Several complementary probes are used on the same sample.",
+    "The experiments are carried out in ultrahigh vacuum chambers fitted with liquid helium cryostats, so that nanometer-thick molecular " +
+    "solid films (i.e. ice) can be prepared and studied under simulated interstellar environments. Several complementary probes are used " +
+    "on the same sample, grown on a ruthenium(0001) single-crystal substrate by physical vapor deposition.",
 
   // Photos shown at the top of the Instruments page. Upload your own photos next to index.html.
   labPhotos: [
@@ -114,41 +131,33 @@ window.SITE = {
   // For each instrument: upload the photo next to index.html and write its file name in "img",
   // e.g. img: "escaprobe.jpg". Leave "" to show a placeholder.
   instruments: [
-    { name: "ESCAprobe TPD facility",
-      tag: "Multi-technique UHV system",
-      text: "The group's ultrahigh-vacuum surface-science system for temperature-programmed desorption and X-ray photoelectron spectroscopy of cryogenic films. I maintain this facility.",
-      img: "" },
     { name: "UHV chamber with liquid-helium cryostat",
       tag: "Sample environment",
-      text: "Cryogenically cooled substrates inside ultrahigh vacuum allow ices to be grown, annealed and probed under conditions that mimic dense interstellar clouds.",
+      text: "Ultrahigh vacuum chamber with a base pressure below 5 × 10<sup>−10</sup> mbar. The sample temperature ranges from 7 to 400 K, and a four-axis manipulator positions the sample for each measurement.",
       img: "" },
     { name: "Reflection-absorption infrared spectroscopy (RAIRS)",
       tag: "Vibrational spectroscopy",
-      text: "Infrared spectroscopy of thin films on a metal surface. It tracks the structure of ice, the formation of clathrate hydrates and the appearance of reaction products.",
+      text: "Infrared spectroscopy of thin films on a metal surface, recorded with Bruker Vertex 70 and Invenio-R spectrometers. It tracks the structure of ice, the formation of clathrate hydrates and the appearance of reaction products.",
       img: "" },
     { name: "Temperature-programmed desorption mass spectrometry (TPD-MS)",
       tag: "Thermal desorption",
-      text: "Warming the sample at a controlled rate and detecting what leaves the surface reveals binding, trapping in cages and desorption of reaction products.",
+      text: "Warming the sample at a controlled rate and detecting what leaves the surface with an Extrel CMS quadrupole mass spectrometer reveals binding, trapping in cages and desorption of reaction products.",
       img: "" },
     { name: "Secondary ion mass spectrometry (SIMS) with Cs<sup>+</sup> gun",
       tag: "Surface composition",
-      text: "Sputtering with a cesium ion beam and mass-analysing the secondary ions gives molecular information on the surface of the film.",
+      text: "A surface-sensitive technique performed on the ice surface using an ion gun (model ILG-6A) and power supply units procured from Kimball Physics Inc. The scattered ions are analyzed using a quadrupole (Extrel CMS) and detected by a conversion dynode and channel electron multiplier.",
       img: "" },
     { name: "Low-energy ion scattering mass spectrometry (LEIS-MS)",
       tag: "Outermost layer",
-      text: "A technique that is sensitive to the outermost layer of a surface, used to probe how molecules are arranged at the ice surface.",
+      text: "Ion scattering performed on the ice surface at 1–10 eV, to investigate ion–molecule interactions.",
       img: "" },
     { name: "X-ray photoelectron spectroscopy (XPS)",
       tag: "Elemental and chemical state",
-      text: "Measures the elements present and their chemical states, for ice films and for nanomaterials in collaborative projects.",
+      text: "The group's ultrahigh vacuum surface-science system used for XPS and TPD to detect the chemical state of the elements present at the surface of molecular materials. I maintain this facility and perform the analysis.",
       img: "" },
-    { name: "Vacuum-ultraviolet deuterium continuum lamp",
+    { name: "Vacuum ultraviolet deuterium continuum lamp",
       tag: "Photolysis source",
-      text: "A VUV light source used to irradiate ices and clathrate hydrates, simulating the ultraviolet radiation field of the interstellar medium.",
-      img: "" },
-    { name: "Cryo-electron microscope",
-      tag: "Electron microscopy",
-      text: "Cryogenic electron microscopy for structural characterization of samples at low temperature.",
+      text: "This VUV light source (McPherson) shines photons in the range of 125–400 nm, simulating the ultraviolet radiation field of the interstellar medium.",
       img: "" }
   ],
 
@@ -157,14 +166,15 @@ window.SITE = {
   exposure: [
     { when: "Jan – Mar 2026", title: "RESOLV Visiting Research Fellow",
       where: "Ruhr-Universität Bochum, Germany",
-      text: "Research visit hosted by André K. Eckhardt, an Emmy Noether research group leader." }
+      text: "Research internship hosted by Dr. André K. Eckhardt, an Emmy Noether research group leader. I was selected for this visit through the students' challenge “Your Step into Solvation Science” (2025) of the Cluster of Excellence RESOLV. " +
+            "During the visit I performed cryogenic EPR and transmission IR spectroscopy of photolysed clathrate hydrates to investigate the role of radical intermediates." }
   ],
 
   awards: [
     // { when: "2025", title: "Award or fellowship name", where: "Awarding body", text: "One line of detail." }
   ],
 
-  // kind: "Oral" or "Poster". Newest first.
+  // kind: "Invited talk" or "Poster". Newest first.
   talks: [
     { when: "11–13 Mar 2026", kind: "Poster",
       title: "Confinement of Radicals in Clathrate Hydrates under Interstellar Conditions",
@@ -178,7 +188,7 @@ window.SITE = {
     { when: "10–13 Apr 2025", kind: "Poster",
       title: "Formation and Dissociation of Clathrate Hydrates in Simulated Interstellar Ice",
       where: "Recent Advances in Physical Chemistry Research (SRAPCR-2025) · IACS, Kolkata, India" },
-    { when: "6–11 Jul 2024", kind: "Oral",
+    { when: "6–11 Jul 2024", kind: "Invited talk",
       title: "Composition-Dependent Clathrate Hydrate Formation of Trimethylene Oxide and Consequences of Dissociation",
       where: "Chemistry and Physics at Low Temperatures (CPLT 2024) · Niseko, Hokkaido, Japan" },
     { when: "31 Jan – 4 Feb 2024", kind: "Poster",

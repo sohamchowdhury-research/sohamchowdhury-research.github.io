@@ -95,6 +95,11 @@
         (e.where ? '<div class="where">' + e.where + "</div>" : "") + (e.text ? "<p>" + e.text + "</p>" : "") + "</div></div>";
     }).join("");
   }
+  function quoteHTML(q) {
+    if (!q) return "";
+    return '<section class="block"><div class="wrap"><figure class="quote"><blockquote>“' + q.text + "”</blockquote>" +
+      "<figcaption>— " + q.by + (q.source ? ", " + q.source : "") + "</figcaption></figure></div></section>";
+  }
   function fundingHTML(title) {
     var list = S.funding || [];
     if (!list.length) return "";
@@ -111,18 +116,18 @@
 
   function pubHTML(p, idx, total) {
     var authors = p.authors.map(function (a) {
-      return /Chowdhury$/.test(a) && /^S\./.test(a) ? "<b>" + esc(a) + "</b>" : esc(a);
+      return /^S\. Chowdhury\*?$/.test(a) ? "<b>" + esc(a) + "</b>" : esc(a);
     }).join(", ");
     var cite = "<i>" + esc(p.journal) + "</i> <b>" + p.year + "</b>";
     if (p.volume) cite += ", <i>" + esc(p.volume) + "</i>";
     if (p.issue) cite += " (" + esc(p.issue) + ")";
     if (p.pages) cite += ", " + esc(p.pages);
-    var first = /^S\. Chowdhury/.test(p.authors[0] || "");
+    var first = !!p.equalFirst || /^S\. Chowdhury/.test(p.authors[0] || "");
     var links = "";
     if (p.doi) links += '<a class="mini" href="' + doiLink(p.doi) + '" target="_blank" rel="noopener">DOI</a>';
     if (p.pdf) links += '<a class="mini" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">PDF</a>';
     return '<div class="pub"><div class="n">' + (total - idx) + '.</div><div><div class="t">' + p.title +
-      (first ? '<span class="badge">First author</span>' : "") + '</div><div class="a">' + authors + '</div><div class="j">' + cite +
+      (first ? '<span class="badge">' + (p.equalFirst ? "Equal first author" : "First author") + "</span>" : "") + '</div><div class="a">' + authors + '</div><div class="j">' + cite +
       '</div><div class="links">' + links + "</div></div></div>";
   }
 
@@ -143,6 +148,8 @@
       iconRow(contacts) + otw +
       '</div><div class="portrait"><img src="' + esc(S.photo) + '" alt="Portrait of ' + esc(S.name) + '"></div></div></section>';
 
+    html += '<section class="block" style="padding-top:44px"><div class="wrap"><figure class="quote"><blockquote>“' + S.quotes.home.text +
+      "”</blockquote><figcaption>— " + S.quotes.home.by + ", " + S.quotes.home.source + "</figcaption></figure></div></section>";
     html += '<section class="block"><div class="wrap">' + sectionTitle("About") + '<div class="bio">' +
       (S.bio || []).map(function (p) { return "<p>" + p + "</p>"; }).join("") + "</div></div></section>";
 
@@ -197,7 +204,7 @@
 
   R.publications = function () {
     var total = P.length;
-    var firstAuthor = P.filter(function (p) { return /^S\. Chowdhury/.test(p.authors[0] || ""); }).length;
+    var firstAuthor = P.filter(function (p) { return !!p.equalFirst || /^S\. Chowdhury/.test(p.authors[0] || ""); }).length;
     var ice = P.filter(function (p) { return p.topic === "ice"; }).length;
     var nano = total - ice;
     var html = pageHead("Publications",
@@ -212,7 +219,7 @@
       '<button class="chip" data-f="nano">Nanomaterials &amp; spectroscopy</button></div>' +
       '<input class="search" type="search" placeholder="Search title, author, journal…" aria-label="Search publications"></div>' +
       '<div id="publist"></div>' +
-      '<p class="note-small"><b>S. Chowdhury</b> = Soham Chowdhury. Full texts are shared through Google Drive where indicated by a PDF button.</p></div>';
+      '<p class="note-small"><b>S. Chowdhury</b> = Soham Chowdhury. * Equal contribution.</p></div>';
     setTimeout(function () { initPubs(total); }, 0);
     return html;
   };
@@ -291,6 +298,6 @@
   var TITLES = { home: "", research: "Research", instruments: "Instruments", publications: "Publications", exposure: "Exposure & Accolades", teaching: "Teaching", contact: "Contact" };
   document.title = (TITLES[page] ? TITLES[page] + " · " : "") + S.name;
   renderHeader();
-  document.getElementById("main").innerHTML = (R[page] || R.home)();
+  document.getElementById("main").innerHTML = (R[page] || R.home)() + (page === "home" ? "" : quoteHTML((S.quotes || {})[page]));
   renderFooter();
 })();

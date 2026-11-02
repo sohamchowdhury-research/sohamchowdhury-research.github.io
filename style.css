@@ -271,3 +271,8 @@ h1, h2, h3, .brand { font-weight: 600; }
 .eyebrow, .tag, .badge, .chip, .btn, .stat b { font-family: var(--sans); }
 .stat b { font-weight: 600; }
 .theme .num { font-weight: 300; }
+
+/* ---------- quotes ---------- */
+.quote { margin: 0; padding: 4px 0 4px 24px; border-left: 3px solid var(--accent); max-width: 46em; }
+.quote blockquote { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.15rem, 2.2vw, 1.45rem); line-height: 1.5; color: var(--ink); }
+.quote figcaption { margin-top: 10px; font-size: .88rem; color: var(--muted); }
