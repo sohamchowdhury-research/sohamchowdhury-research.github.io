@@ -234,7 +234,7 @@ window.SITE = {
       text: "Half-Time Research Assistantship from IIT Madras, supporting my Ph.D. research." },
     { name: "ANRF Advanced Research Grant (ARG)", abbr: "ANRF", logo: "logo-anrf.png", url: "https://anrfonline.in",
       text: "Anusandhan National Research Foundation grant supporting clathrate hydrate research and new cryogenic instrumentation." },
-    { name: "ISRO–IITM funding", abbr: "ISRO", logo: "", url: "https://www.isro.gov.in",
+    { name: "ISRO–IITM funding", abbr: "ISRO", logo: "logo-isro.png", url: "https://www.isro.gov.in",
       text: "Support from the Indian Space Research Organisation through IIT Madras for astrochemistry research." },
     { name: "RESOLV, Ruhr-Universität Bochum", abbr: "RESOLV", logo: "logo-resolv.png", url: "https://www.solvation.de",
       text: "The RESOLV Cluster of Excellence funded my 2026 research visit to Bochum, Germany." }

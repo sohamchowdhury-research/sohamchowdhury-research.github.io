@@ -14,8 +14,8 @@
   --bg: #ffffff;
   --radius: 14px;
   --shadow: 0 1px 2px rgba(14, 34, 56, .05), 0 6px 20px rgba(14, 34, 56, .06);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --sans: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --maxw: 1080px;
 }
 
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--ink);
   background: var(--bg);
@@ -34,7 +34,7 @@ img { max-width: 100%; display: block; }
 a { color: var(--accent-dark); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--accent); }
 h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; margin: 0 0 .5em; color: var(--ink); }
-h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); letter-spacing: -.01em; }
+h1 { font-size: clamp(2rem, 4.4vw, 2.8rem); letter-spacing: -.01em; }
 h2 { font-size: 1.6rem; }
 h3 { font-size: 1.15rem; }
 p { margin: 0 0 1em; }
@@ -262,3 +262,12 @@ table.courses td .sub { color: var(--muted); font-size: .85rem; margin-top: 2px;
 .fund { grid-template-columns: 1fr; gap: 12px; align-items: start; }
 .fund-logo { width: 100%; height: 76px; padding: 10px 14px; }
 .fund-logo img { max-height: 100%; }
+
+/* ---------- typography (matches pradeepresearch.org: Sora + Inter) ---------- */
+body { font-weight: 400; }
+h1, h2, h3, .brand { font-weight: 600; }
+.hero .lead, .page-head p { font-weight: 300; }
+.nav a, .nav button.drop-btn { font-family: "Inter", var(--sans); font-weight: 500; font-size: .88rem; }
+.eyebrow, .tag, .badge, .chip, .btn, .stat b { font-family: var(--sans); }
+.stat b { font-weight: 600; }
+.theme .num { font-weight: 300; }
