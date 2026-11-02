@@ -2,7 +2,7 @@
 //  SITE CONTENT — edit this file to change almost everything on the site.
 //  Text can contain simple HTML (<b>, <i>, <sub>, <a href="...">).
 //  Keep the quotes and commas exactly as they are. Leave a list as []
-//  to hide that section. Publications live in content/publications.js.
+//  to hide that section. Publications live in publications.js.
 // =====================================================================
 window.SITE = {
 
@@ -11,6 +11,8 @@ window.SITE = {
   affiliation: "Department of Chemistry, Indian Institute of Technology Madras",
   group: "Pradeep Research Group",
   groupUrl: "https://pradeepresearch.org",
+  // File name of the Pradeep Research Group logo uploaded next to index.html (e.g. "logo-pradeep.png"). "" hides it.
+  groupLogo: "",
   updated: "November 2026",
 
   // Link to your CV on Google Drive (Share → Anyone with the link). Leave "" to hide the button.
@@ -162,16 +164,42 @@ window.SITE = {
     // { when: "2025", title: "Award or fellowship name", where: "Awarding body", text: "One line of detail." }
   ],
 
+  // kind: "Oral" or "Poster". Newest first.
   talks: [
-    // { when: "2025", title: "Title of talk or poster", where: "Conference, city", text: "Oral / poster" }
+    { when: "11–13 Mar 2026", kind: "Poster",
+      title: "Confinement of Radicals in Clathrate Hydrates under Interstellar Conditions",
+      where: "RESOLV Klausurtagung 2026 · Hotel-Residence Klosterpforte, Ruhr-Universität Bochum, Germany" },
+    { when: "21–25 Sep 2025", kind: "Poster",
+      title: "Formation of Methanol Clathrate Hydrate in Simulated Interstellar Ices",
+      where: "9th Asian and Oceanian Spectroscopy Conference (AOSC 2025) · Bogmallo Beach Resort, Goa, India" },
+    { when: "8 Sep 2025", kind: "Poster",
+      title: "Formation of Methanol Clathrate Hydrate in Interstellar Ice Analogs",
+      where: "Chemistry in-House Symposium (CiHS 2025) · IIT Madras, Chennai, India" },
+    { when: "10–13 Apr 2025", kind: "Poster",
+      title: "Formation and Dissociation of Clathrate Hydrates in Simulated Interstellar Ice",
+      where: "Recent Advances in Physical Chemistry Research (SRAPCR-2025) · IACS, Kolkata, India" },
+    { when: "6–11 Jul 2024", kind: "Oral",
+      title: "Composition-Dependent Clathrate Hydrate Formation of Trimethylene Oxide and Consequences of Dissociation",
+      where: "Chemistry and Physics at Low Temperatures (CPLT 2024) · Niseko, Hokkaido, Japan" },
+    { when: "31 Jan – 4 Feb 2024", kind: "Poster",
+      title: "Clathrate hydrates in simulated interstellar medium",
+      where: "Astronomical Society of India (ASI 2024) · IISc Bangalore, India" },
+    { when: "16–18 Dec 2023", kind: "Poster",
+      title: "Formation of composition-dependent clathrate hydrates of trimethylene oxide in ultrahigh vacuum and their varying consequences in dissociation-induced crystallization of ice",
+      where: "ICMM 2023 · IIT Madras, India" }
   ],
 
   // -------------------------------------------------------------- TEACHING
-  teachingIntro: "Courses I have taken during my M.Sc. and Ph.D. coursework.",
+  teachingIntro: "Courses at IIT Madras.",
 
   // Add courses like this (copy a line, edit it):
   // { term: "Jul – Nov 2021", code: "CY5010", title: "Course title", institution: "IIT Madras", grade: "" }
-  courses: [],
+  courses: [
+    { term: "Jul – Nov 2022, Jul – Nov 2023", code: "CY1001",
+      title: "Chemistry: Principles, Structure, Reactivity and Applications", institution: "B.Tech, IIT Madras" },
+    { term: "Jan – May 2023, Jan – May 2025", code: "CY1002",
+      title: "Chemistry Laboratory Course", institution: "B.Tech, IIT Madras" }
+  ],
 
   // Optional: teaching assistantships or mentoring. Leave [] to hide.
   teachingExperience: [
@@ -186,8 +214,21 @@ window.SITE = {
   contacts: [
     { type: "email",   label: "Email",          text: "98soham06@gmail.com", url: "mailto:98soham06@gmail.com" },
     { type: "scholar", label: "Google Scholar", text: "scholar.google.com/citations?user=TfxnEn8AAAAJ", url: "https://scholar.google.com/citations?user=TfxnEn8AAAAJ&hl=en" },
-    { type: "orcid",   label: "ORCID",          text: "orcid.org/0009-0000-8151-6065", url: "https://orcid.org/0009-0000-8151-6065" }
-    // { type: "linkedin",     label: "LinkedIn",     text: "linkedin.com/in/your-name", url: "https://www.linkedin.com/in/your-name" },
-    // { type: "researchgate", label: "ResearchGate", text: "researchgate.net/profile/your-name", url: "https://www.researchgate.net/profile/your-name" },
+    { type: "orcid",   label: "ORCID",          text: "orcid.org/0009-0000-8151-6065", url: "https://orcid.org/0009-0000-8151-6065" },
+    { type: "linkedin",     label: "LinkedIn",     text: "linkedin.com/in/soham-chowdhury-8ab7351b2", url: "https://www.linkedin.com/in/soham-chowdhury-8ab7351b2" },
+    { type: "researchgate", label: "ResearchGate", text: "researchgate.net/profile/Soham-Chowdhury-4", url: "https://www.researchgate.net/profile/Soham-Chowdhury-4" }
+  ],
+
+  // ------------------------------------------------------ FUNDING & SUPPORT
+  // logo: file name of the logo image uploaded next to index.html (e.g. "logo-anrf.png"). "" shows the abbreviation instead.
+  funding: [
+    { name: "IIT Madras HTRA Fellowship", abbr: "IITM", logo: "", url: "https://www.iitm.ac.in",
+      text: "Half-Time Research Assistantship from IIT Madras, supporting my Ph.D. research." },
+    { name: "ANRF Advanced Research Grant (ARG)", abbr: "ANRF", logo: "", url: "https://anrfonline.in",
+      text: "Anusandhan National Research Foundation grant supporting clathrate hydrate research and new cryogenic instrumentation." },
+    { name: "ISRO–IITM funding", abbr: "ISRO", logo: "", url: "https://www.isro.gov.in",
+      text: "Support from the Indian Space Research Organisation through IIT Madras for astrochemistry research." },
+    { name: "RESOLV, Ruhr-Universität Bochum", abbr: "RESOLV", logo: "", url: "https://www.solvation.de",
+      text: "The RESOLV Cluster of Excellence funded my 2026 research visit to Bochum, Germany." }
   ]
 };

@@ -90,9 +90,21 @@
   }
   function entries(list) {
     return list.map(function (e) {
-      return '<div class="entry"><div class="when">' + (e.when || "") + "</div><div><h3>" + e.title + "</h3>" +
+      return '<div class="entry"><div class="when">' + (e.when || "") + "</div><div><h3>" + e.title +
+        (e.kind ? '<span class="badge">' + e.kind + "</span>" : "") + "</h3>" +
         (e.where ? '<div class="where">' + e.where + "</div>" : "") + (e.text ? "<p>" + e.text + "</p>" : "") + "</div></div>";
     }).join("");
+  }
+  function fundingHTML(title) {
+    var list = S.funding || [];
+    if (!list.length) return "";
+    return '<section class="block"><div class="wrap">' + sectionTitle(title) + '<div class="fund-grid">' + list.map(function (f) {
+      var logo = f.logo
+        ? '<img src="' + esc(f.logo) + '" alt="' + esc(f.name) + ' logo" loading="lazy">'
+        : "<span>" + esc(f.abbr || f.name) + "</span>";
+      var inner = '<div class="fund-logo">' + logo + '</div><div><h3>' + f.name + "</h3><p>" + f.text + "</p></div>";
+      return f.url ? '<a class="fund" href="' + esc(f.url) + '" target="_blank" rel="noopener">' + inner + "</a>" : '<div class="fund">' + inner + "</div>";
+    }).join("") + "</div></div></section>";
   }
   function doiLink(d) { return "https://doi.org/" + d; }
   function pubByDoi(d) { return P.filter(function (p) { return (p.doi || "").toLowerCase() === d.toLowerCase(); })[0]; }
@@ -125,6 +137,7 @@
       '<section class="hero"><div class="wrap"><div>' +
       '<div class="eyebrow">' + esc(S.tagline) + "</div><h1>" + esc(S.name) + "</h1>" +
       '<div class="affil">' + esc(S.affiliation) + ' · <a href="' + esc(S.groupUrl) + '" target="_blank" rel="noopener">' + esc(S.group) + "</a></div>" +
+      (S.groupLogo ? '<a class="group-logo" href="' + esc(S.groupUrl) + '" target="_blank" rel="noopener"><img src="' + esc(S.groupLogo) + '" alt="' + esc(S.group) + ' logo"></a>' : "") +
       '<p class="lead">' + S.intro + "</p>" +
       '<div class="btn-row"><a class="btn primary" href="publications.html">Publications</a><a class="btn ghost" href="research.html">Research</a>' + cv + "</div>" +
       iconRow(contacts) + otw +
@@ -139,6 +152,8 @@
 
     html += '<section class="block"><div class="wrap"><div class="two-col"><div>' + sectionTitle("Education") + timeline(S.education || []) +
       "</div><div>" + sectionTitle("Experience") + timeline(S.experience || []) + "</div></div></div></section>";
+
+    html += fundingHTML("Funding &amp; support");
 
     if ((S.news || []).length) {
       html += '<section class="block"><div class="wrap">' + sectionTitle("News") + '<ul class="news">' +
@@ -159,7 +174,7 @@
       }).join("<br>");
       return '<div class="theme"><div class="num">' + (i + 1) + "</div><div><h2>" + t.title + "</h2><p>" + t.text + "</p>" +
         (rel ? '<div class="related">Representative papers: ' + rel + "</div>" : "") + "</div></div>";
-    }).join("") + "</div>";
+    }).join("") + "</div>" + fundingHTML("Funding &amp; support");
     return html;
   };
 
@@ -227,10 +242,10 @@
   }
 
   R.exposure = function () {
-    var html = pageHead("Exposure & Accolades", "Research visits, awards and honours, and talks.");
+    var html = pageHead("Exposure & Accolades", "Research visits, conference presentations, and awards and honours.");
     html += '<div class="wrap" style="padding-top:34px">';
     var any = false;
-    [["Research exposure", S.exposure], ["Awards & honours", S.awards], ["Talks & presentations", S.talks]].forEach(function (s) {
+    [["Research exposure", S.exposure], ["Conference presentations", S.talks], ["Awards & honours", S.awards]].forEach(function (s) {
       if ((s[1] || []).length) { any = true; html += sectionTitle(s[0]) + entries(s[1]) + '<div style="height:26px"></div>'; }
     });
     if (!any) html += '<p class="empty">Nothing listed yet.</p>';
@@ -239,7 +254,7 @@
 
   R.teaching = function () {
     var html = pageHead("Teaching", S.teachingIntro);
-    html += '<div class="wrap" style="padding-top:34px">' + sectionTitle("Courses taken");
+    html += '<div class="wrap" style="padding-top:34px">' + sectionTitle("Courses");
     if ((S.courses || []).length) {
       html += '<div class="table-wrap"><table class="courses"><thead><tr><th>Term</th><th>Code</th><th>Course</th><th>Institution</th></tr></thead><tbody>' +
         S.courses.map(function (c) {
